@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fourlinkx - Discover Your True Behavior</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Discover your true behavior and character based on your current mood. Enter your name and mood to see a personalized behavior insight and share it with friends!" />
+<meta name="keywords" content="behavior, character, mood, personality, Fourlinkx, share behavior, mood insights" />
+<meta name="author" content="Fourlinkx" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Fourlinkx - Discover Your True Behavior" />
+<meta property="og:description" content="Discover your true behavior and character based on your current mood. Enter your name and mood to see a personalized behavior insight and share it with friends!" />
+<meta property="og:url" content="https://fourlinkx.example.com/" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Fourlinkx - Discover Your True Behavior" />
+<meta name="twitter:description" content="Discover your true behavior and character based on your current mood. Enter your name and mood to see a personalized behavior insight and share it with friends!" />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80" />
+
+<!-- Favicon -->
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/248/248918.png" type="image/png" />
+
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    /* Background image with overlay */
+    background: 
+      linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(34, 49, 63, 0.6)),
+      url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+    background-size: cover;
+  }
+  .site-title {
+    font-weight: 900;
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  }
+  h1 {
+    font-weight: 900;
+    font-size: 2.75rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
+  form {
+    background: rgba(255 255 255 / 0.15);
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    margin-bottom: 2rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+  }
+  input[type="text"], select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    outline-offset: 2px;
+    margin-bottom: 1.2rem;
+    transition: box-shadow 0.3s ease;
+  }
+  input[type="text"]:focus, select:focus {
+    box-shadow: 0 0 10px #ffffffcc;
+  }
+  button.submit-btn {
+    background: #ff6b6b;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: white;
+    width: 100%;
+    transition: background 0.3s ease;
+  }
+  button.submit-btn:hover {
+    background: #ee5253;
+  }
+  .result-container {
+    background: rgba(255 255 255 / 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    text-align: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .result-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 6px rgba(0,0,0,0.4);
+  }
+  .behavior {
+    font-size: 1.4rem;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 1.8rem;
+  }
+  .share-label {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+  .share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .share-button {
+    background: #fff;
+    color: #222;
+    padding: 0.6rem 1rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .share-button:hover {
+    background: #ff6b6b;
+    color: white;
+  }
+  .share-button svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+  @media (max-width: 480px) {
+    .site-title {
+      font-size: 2.8rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    form {
+      padding: 1.5rem 1.8rem;
+    }
+    .result-container {
+      padding: 1.5rem 1.8rem;
+    }
+    .behavior {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="site-title" aria-label="Site Name">Fourlinkx</div>
+<h1>Discover Your True Behavior</h1>
+<form id="behaviorForm" aria-label="Behavior and Character form">
+  <label for="nameInput">Your Name</label>
+  <input type="text" id="nameInput" name="name" placeholder="Enter your name" required autocomplete="off" />
+
+  <label for="moodSelect">Current Mood</label>
+  <select id="moodSelect" name="mood" required aria-required="true">
+    <option value="" disabled selected>Select your mood</option>
+    <option value="happy">Happy</option>
+    <option value="sad">Sad</option>
+    <option value="angry">Angry</option>
+    <option value="calm">Calm</option>
+    <option value="anxious">Anxious</option>
+    <option value="excited">Excited</option>
+  </select>
+
+  <button type="submit" class="submit-btn" aria-label="Show me my behavior and character">Show Behavior</button>
+</form>
+
+<section id="resultSection" class="result-container" aria-live="polite" aria-atomic="true" hidden>
+  <h2 id="resultName"></h2>
+  <p class="behavior" id="behaviorText"></p>
+  <div class="share-label">Share to:</div>
+  <div class="share-buttons">
+    <a href="#" target="_blank" rel="noopener" class="share-button" id="fbShare" aria-label="Share on Facebook" tabindex="0">
+      <svg viewBox="0 0 24 24"><path d="M22 12c0-5.525-4.475-10-10-10S2 6.475 2 12c0 5.012 3.676 9.15 8.438 9.878v-6.988h-2.54v-2.89h2.54v-2.202c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.465h-1.26c-1.243 0-1.63.772-1.63 1.562v1.869h2.773l-.443 2.89h-2.33v6.988C18.324 21.15 22 17.012 22 12z"/></svg>
+      Facebook
+    </a>
+    <a href="#" target="_blank" rel="noopener" class="share-button" id="igShare" aria-label="Share on Instagram" tabindex="0">
+      <svg viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a1 1 0 110 2 1 1 0 010-2zm-5 3.75a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm0 2a2.75 2.75 0 100 5.5 2.75 2.75 0 000-5.5z"/></svg>
+      Instagram
+    </a>
+    <a href="#" target="_blank" rel="noopener" class="share-button" id="waShare" aria-label="Share on WhatsApp" tabindex="0">
+      <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.87 11.87 0 0012 0C5.373 0 0 5.372 0 12a11.872 11.872 0 0017.03 10.9l.003-.002 4.972 1.426-1.453-4.862-.01-.033A11.898 11.898 0 0024 12c0-3.2-1.247-6.203-3.48-8.52zm-4.315 13.25c-.275.77-1.44 1.46-1.98 1.56-.5.09-1.11.13-2.22-.56-3.08-1.54-5.1-5.3-5.26-5.57-.16-.28-1.31-1.75-1.31-3.33 0-1.57.83-2.35 1.13-2.68.3-.33.65-.38.87-.38.23 0 .48 0 .73.02.24.02.56-.09.85.65.29.74.96 2.56 1.04 2.75.08.2.14.44.04.72-.11.28-.17.46-.35.7-.18.23-.37.5-.53.67-.18.19-.37.4-.18.78.18.39.81 1.3 1.73 2.1 1.2 1.06 2.18 1.4 2.58 1.56.38.15.6.12.82-.07.22-.18.87-1.02 1.08-1.37.21-.35.44-.29.75-.17.3.13 1.89.9 2.22 1.07.33.18.55.27.63.42.07.15.07.87-.2 1.67z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</section>
+
+<script>
+  (function() {
+    'use strict';
+
+    // Map moods to behavior/character
+    const behaviorMap = {
+      happy: "Your radiant joy brightens the day of everyone around you. Your optimism and warmth make you a natural leader and a beacon of positivity.",
+      sad: "In moments of sadness, your deep introspection reveals a thoughtful and compassionate soul. You possess resilience that helps you grow stronger through adversity.",
+      angry: "Your passion and drive fuel a powerful energy that commands attention. You channel your anger into motivating actions and stand firm by your principles.",
+      calm: "Your serene presence brings peace to chaos. With a composed mind and compassionate heart, you inspire trust and harmony in your environment.",
+      anxious: "Your alertness and attention to detail showcase your desire for control and growth. You are highly empathetic and strive to prepare conscientiously for the future.",
+      excited: "Your vibrant enthusiasm ignites excitement in others. You are adventurous, spontaneous, and always eager to embrace new opportunities."
+    };
+
+    const form = document.getElementById('behaviorForm');
+    const nameInput = document.getElementById('nameInput');
+    const moodSelect = document.getElementById('moodSelect');
+    const resultSection = document.getElementById('resultSection');
+    const resultName = document.getElementById('resultName');
+    const behaviorText = document.getElementById('behaviorText');
+    const fbShare = document.getElementById('fbShare');
+    const igShare = document.getElementById('igShare');
+    const waShare = document.getElementById('waShare');
+
+    let currentTextOutput = '';
+    let currentName = '';
+    let currentBehavior = '';
+
+    function encodeForURL(text) {
+      return encodeURIComponent(text);
+    }
+
+    function createShareUrls(text) {
+      const urlEncode = encodeForURL(text);
+      const pageUrl = encodeForURL(window.location.href);
+
+      // Facebook share with quote
+      const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}&quote=${urlEncode}`;
+
+      // Instagram direct share is not possible via URL, fallback to Instagram homepage
+      const igUrl = `https://www.instagram.com/`;
+
+      // WhatsApp share with text
+      const waUrl = `https://api.whatsapp.com/send?text=${urlEncode}`;
+
+      return { fbUrl, igUrl, waUrl };
+    }
+
+    // Disable share buttons on load
+    function setShareButtonsDisabled(disabled) {
+      [fbShare, igShare, waShare].forEach(btn => {
+        if(disabled) {
+          btn.href = '#';
+          btn.style.pointerEvents = 'none';
+          btn.setAttribute('aria-disabled', 'true');
+          btn.tabIndex = -1;
+        } else {
+          btn.style.pointerEvents = 'auto';
+          btn.removeAttribute('aria-disabled');
+          btn.tabIndex = 0;
+        }
+      });
+    }
+
+    setShareButtonsDisabled(true);
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = nameInput.value.trim();
+      const mood = moodSelect.value;
+
+      if (!name || !mood || !behaviorMap[mood]) {
+        alert('Please enter your name and select a valid mood.');
+        return;
+      }
+
+      const behavior = behaviorMap[mood];
+      currentName = name;
+      currentBehavior = behavior;
+      currentTextOutput = `${name}, here is your true behavior & character: ${behavior}`;
+
+      // Prepare share URLs but DO NOT show result yet
+      const { fbUrl, igUrl, waUrl } = createShareUrls(currentTextOutput);
+
+      fbShare.href = fbUrl;
+      igShare.href = igUrl;
+      waShare.href = waUrl;
+
+      // Enable share buttons now
+      setShareButtonsDisabled(false);
+
+      // Hide the result until user clicks share
+      resultSection.hidden = true;
+
+      alert('Now click any share button below to see your behavior and share it with friends!');
+    });
+
+    // Show result and open link on share button click
+    function handleShareClick(event) {
+      // If result is hidden and we have result data, reveal it
+      if (resultSection.hidden && currentTextOutput) {
+        resultName.textContent = currentName;
+        behaviorText.textContent = currentBehavior;
+        resultSection.hidden = false;
+      }
+      // Allow default action (opening share URL)
+    }
+
+    fbShare.addEventListener('click', handleShareClick);
+    igShare.addEventListener('click', handleShareClick);
+    waShare.addEventListener('click', handleShareClick);
+
+  })();
+</script>
+</body>
+</html>
