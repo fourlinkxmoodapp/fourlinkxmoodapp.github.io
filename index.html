@@ -347,13 +347,17 @@
     }
 
     function createShareUrls(text) {
-      const urlEncode = encodeForURL(text);
-      const pageUrl = encodeForURL(window.location.href);
-      const websiteLink = encodeForURL("https://fourlinkx.example.com/"); // Your website link
+      const websiteUrl = "https://fourlinkx.example.com/";
+      const inviteMessage = ` Try it yourself at ${websiteUrl}`;
+      const fullMessage = text + inviteMessage;
+
+      const urlEncodeFullMessage = encodeForURL(fullMessage);
+      const urlEncodePageUrl = encodeForURL(websiteUrl);
+
       return {
-        fbUrl: \`https://www.facebook.com/sharer/sharer.php?u=\${pageUrl}&quote=\${urlEncode}\`,
-        igUrl: \`https://www.instagram.com/\`,
-        waUrl: \`https://api.whatsapp.com/send?text=\${urlEncode} Read more at \${websiteLink}\`
+        fbUrl: `https://www.facebook.com/sharer/sharer.php?u=${urlEncodePageUrl}&quote=${urlEncodeFullMessage}`,
+        igUrl: websiteUrl, // Instagram does not support text sharing, so link homepage
+        waUrl: `https://api.whatsapp.com/send?text=${urlEncodeFullMessage}`
       };
     }
 
@@ -392,7 +396,7 @@
       const behavior = behaviorMap[mood];
       currentName = name;
       currentBehavior = behavior;
-      currentTextOutput = \`\${name}, here is your true behavior & character: \${behavior}\`;
+      currentTextOutput = `${name}, here is your true behavior & character: ${behavior}`;
 
       const urls = createShareUrls(currentTextOutput);
 
@@ -407,7 +411,7 @@
       setShareButtonsDisabled(false);
       resultSection.hidden = true;
 
-      showAlert('🎉 Great! Now click any share button below or in this alert to see your behavior and share it with friends!');
+      showAlert('🎉 Great! Now click share button below to see your behavior and share it with friends!');
     });
 
     function handleShareClick(event) {
