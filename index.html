@@ -341,23 +341,25 @@
     let currentTextOutput = '';
     let currentName = '';
     let currentBehavior = '';
+    // Website URL to invite others
+    const websiteUrl = window.location.origin;
 
     function encodeForURL(text) {
       return encodeURIComponent(text);
     }
 
     function createShareUrls(text) {
-      const urlEncode = encodeForURL(text);
-      const pageUrl = encodeForURL(window.location.href);
+      const urlEncode = encodeForURL(text + "\n\nCheck it out here: " + websiteUrl);
+      const pageUrl = encodeForURL(websiteUrl);
       return {
         fbUrl: `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}&quote=${urlEncode}`,
-        igUrl: `https://www.instagram.com/`,
+        igUrl: `https://www.instagram.com/`, // Instagram can't share text directly
         waUrl: `https://api.whatsapp.com/send?text=${urlEncode}`
       };
     }
 
     function setShareButtonsDisabled(disabled) {
-      [fbShareBtn, igShareBtn, waShareBtn, alertFbShare, alertIgShare, alertWaShare].forEach(btn => {
+      [fbShareBtn, igShareBtn, waShareBtn].forEach(btn => {
         btn.disabled = disabled;
         btn.style.pointerEvents = disabled ? 'none' : 'auto';
         btn.setAttribute('aria-disabled', disabled ? 'true' : 'false');
@@ -374,7 +376,7 @@
       setTimeout(() => {
         alertBox.classList.remove('show');
         alertBox.hidden = true;
-      }, 5000);
+      }, 5500);
     }
 
     form.addEventListener('submit', function(event) {
@@ -399,10 +401,6 @@
       igShareBtn.dataset.url = urls.igUrl;
       waShareBtn.dataset.url = urls.waUrl;
 
-      alertFbShare.dataset.url = urls.fbUrl;
-      alertIgShare.dataset.url = urls.igUrl;
-      alertWaShare.dataset.url = urls.waUrl;
-
       setShareButtonsDisabled(false);
       resultSection.hidden = true;
 
@@ -415,17 +413,21 @@
         behaviorText.textContent = currentBehavior;
         resultSection.hidden = false;
       }
+
       const url = event.currentTarget.dataset.url;
       if (url) {
         window.open(url, '_blank', 'noopener,noreferrer');
       }
     }
 
-    [fbShareBtn, igShareBtn, waShareBtn, alertFbShare, alertIgShare, alertWaShare].forEach(btn => {
+    [fbShareBtn, igShareBtn, waShareBtn].forEach(btn => {
       btn.addEventListener('click', handleShareClick);
     });
+
+    // Alert share buttons - optional, if you want to add share buttons also in alert (remove if not wanted)
+    // If you want to add share buttons in alert message, uncomment below and add buttons in alert html (not included here)
+
   })();
 </script>
 </body>
 </html>
-
