@@ -40,7 +40,6 @@
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    /* Background image with overlay */
     background:
       linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(34, 49, 63, 0.6)),
       url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
@@ -177,7 +176,7 @@
     font-weight: 700;
     padding: 1rem 2rem;
     border-radius: 50px;
-    box-shadow: 0 6px 15px rgba(238, 82, 83, 0.8);
+    box-shadow: 0 6px 15px rgba(238, 82, 83, 0.85);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -251,62 +250,63 @@
 </style>
 </head>
 <body>
-<div id="customAlert" role="alert" aria-live="assertive" aria-atomic="true" hidden>
-  <div class="alert-message"></div>
-  <div class="alert-share-buttons" aria-label="Share your behavior">
-    <button type="button" aria-label="Share on Facebook" class="alert-share-button" id="alertFbShare" title="Share on Facebook">
-      <svg viewBox="0 0 24 24"><path d="M22 12c0-5.525-4.475-10-10-10S2 6.475 2 12c0 5.012 3.676 9.15 8.438 9.878v-6.988h-2.54v-2.89h2.54v-2.202c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.465h-1.26c-1.243 0-1.63.772-1.63 1.562v1.869h2.773l-.443 2.89h-2.33v6.988C18.324 21.15 22 17.012 22 12z"/></svg>
-      Facebook
-    </button>
-    <button type="button" aria-label="Share on Instagram" class="alert-share-button" id="alertIgShare" title="Share on Instagram">
-      <svg viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a1 1 0 110 2 1 1 0 010-2zm-5 3.75a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm0 2a2.75 2.75 0 100 5.5 2.75 2.75 0 000-5.5z"/></svg>
-      Instagram
-    </button>
-    <button type="button" aria-label="Share on WhatsApp" class="alert-share-button" id="alertWaShare" title="Share on WhatsApp">
-      <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.87 11.87 0 0012 0C5.373 0 0 5.372 0 12a11.872 11.872 0 0017.03 10.9l.003-.002 4.972 1.426-1.453-4.862-.01-.033A11.898 11.898 0 0024 12c0-3.2-1.247-6.203-3.48-8.52zm-4.315 13.25c-.275.77-1.44 1.46-1.98 1.56-.5.09-1.11.13-2.22-.56-3.08-1.54-5.1-5.3-5.26-5.57-.16-.28-1.31-1.75-1.31-3.33 0-1.57.83-2.35 1.13-2.68.3-.33.65-.38.87-.38.23 0 .48 0 .73.02.24.02.56-.09.85.65.29.74.96 2.56 1.04 2.75.08.2.14.44.04.72-.11.28-.17.46-.35.7-.18.23-.37.5-.53.67-.18.19-.37.4-.18.78.18.39.81 1.3 1.73 2.1 1.2 1.06 2.18 1.4 2.58 1.56.38.15.6.12.82-.07.22-.18.87-1.02 1.08-1.37.21-.35.44-.29.75-.17.3.13 1.89.9 2.22 1.07.33.18.55.27.63.42.07.15.07.87-.2 1.67z"/></svg>
-      WhatsApp
-    </button>
+  <div id="customAlert" role="alert" aria-live="assertive" aria-atomic="true" hidden>
+    <div class="alert-message"></div>
+    <div class="alert-share-buttons" aria-label="Share your behavior">
+      <button type="button" aria-label="Share on Facebook" class="alert-share-button" id="alertFbShare" title="Share on Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12c0-5.525-4.475-10-10-10S2 6.475 2 12c0 5.012 3.676 9.15 8.438 9.878v-6.988h-2.54v-2.89h2.54v-2.202c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.465h-1.26c-1.243 0-1.63.772-1.63 1.562v1.869h2.773l-.443 2.89h-2.33v6.988C18.324 21.15 22 17.012 22 12z"/></svg>
+        Facebook
+      </button>
+      <button type="button" aria-label="Share on Instagram" class="alert-share-button" id="alertIgShare" title="Share on Instagram">
+        <svg viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a1 1 0 110 2 1 1 0 010-2zm-5 3.75a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm0 2a2.75 2.75 0 100 5.5 2.75 2.75 0 000-5.5z"/></svg>
+        Instagram
+      </button>
+      <button type="button" aria-label="Share on WhatsApp" class="alert-share-button" id="alertWaShare" title="Share on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.87 11.87 0 0012 0C5.373 0 0 5.372 0 12a11.872 11.872 0 0017.03 10.9l.003-.002 4.972 1.426-1.453-4.862-.01-.033A11.898 11.898 0 0024 12c0-3.2-1.247-6.203-3.48-8.52zm-4.315 13.25c-.275.77-1.44 1.46-1.98 1.56-.5.09-1.11.13-2.22-.56-3.08-1.54-5.1-5.3-5.26-5.57-.16-.28-1.31-1.75-1.31-3.33 0-1.57.83-2.35 1.13-2.68.3-.33.65-.38.87-.38.23 0 .48 0 .73.02.24.02.56-.09.85.65.29.74.96 2.56 1.04 2.75.08.2.14.44.04.72-.11.28-.17.46-.35.7-.18.23-.37.5-.53.67-.18.19-.37.4-.18.78.18.39.81 1.3 1.73 2.1 1.2 1.06 2.18 1.4 2.58 1.56.38.15.6.12.82-.07.22-.18.87-1.02 1.08-1.37.21-.35.44-.29.75-.17.3.13 1.89.9 2.22 1.07.33.18.55.27.63.42.07.15.07.87-.2 1.67z"/></svg>
+        WhatsApp
+      </button>
+    </div>
   </div>
-</div>
-<div class="site-title" aria-label="Site Name">Fourlinkx</div>
-<h1>Discover Your True Behavior</h1>
-<form id="behaviorForm" aria-label="Behavior and Character form">
-  <label for="nameInput">Your Name</label>
-  <input type="text" id="nameInput" name="name" placeholder="Enter your name" required autocomplete="off" />
 
-  <label for="moodSelect">Current Mood</label>
-  <select id="moodSelect" name="mood" required aria-required="true">
-    <option value="" disabled selected>Select your mood</option>
-    <option value="happy">Happy</option>
-    <option value="sad">Sad</option>
-    <option value="angry">Angry</option>
-    <option value="calm">Calm</option>
-    <option value="anxious">Anxious</option>
-    <option value="excited">Excited</option>
-  </select>
+  <div class="site-title" aria-label="Site Name">Fourlinkx</div>
+  <h1>Discover Your True Behavior</h1>
+  <form id="behaviorForm" aria-label="Behavior and Character form">
+    <label for="nameInput">Your Name</label>
+    <input type="text" id="nameInput" name="name" placeholder="Enter your name" required autocomplete="off" />
 
-  <button type="submit" class="submit-btn" aria-label="Show me my behavior and character">Show Behavior</button>
-</form>
+    <label for="moodSelect">Current Mood</label>
+    <select id="moodSelect" name="mood" required aria-required="true">
+      <option value="" disabled selected>Select your mood</option>
+      <option value="happy">Happy</option>
+      <option value="sad">Sad</option>
+      <option value="angry">Angry</option>
+      <option value="calm">Calm</option>
+      <option value="anxious">Anxious</option>
+      <option value="excited">Excited</option>
+    </select>
 
-<section id="resultSection" class="result-container" aria-live="polite" aria-atomic="true" hidden>
-  <h2 id="resultName"></h2>
-  <p class="behavior" id="behaviorText"></p>
-  <div class="share-label">Share to:</div>
-  <div class="share-buttons">
-    <button type="button" class="share-button" id="fbShare" aria-label="Share on Facebook" tabindex="0">
-      <svg viewBox="0 0 24 24"><path d="M22 12c0-5.525-4.475-10-10-10S2 6.475 2 12c0 5.012 3.676 9.15 8.438 9.878v-6.988h-2.54v-2.89h2.54v-2.202c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.465h-1.26c-1.243 0-1.63.772-1.63 1.562v1.869h2.773l-.443 2.89h-2.33v6.988C18.324 21.15 22 17.012 22 12z"/></svg>
-      Facebook
-    </button>
-    <button type="button" class="share-button" id="igShare" aria-label="Share on Instagram" tabindex="0">
-      <svg viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a1 1 0 110 2 1 1 0 010-2zm-5 3.75a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm0 2a2.75 2.75 0 100 5.5 2.75 2.75 0 000-5.5z"/></svg>
-      Instagram
-    </button>
-    <button type="button" class="share-button" id="waShare" aria-label="Share on WhatsApp" tabindex="0">
-      <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.87 11.87 0 0012 0C5.373 0 0 5.372 0 12a11.872 11.872 0 0017.03 10.9l.003-.002 4.972 1.426-1.453-4.862-.01-.033A11.898 11.898 0 0024 12c0-3.2-1.247-6.203-3.48-8.52zm-4.315 13.25c-.275.77-1.44 1.46-1.98 1.56-.5.09-1.11.13-2.22-.56-3.08-1.54-5.1-5.3-5.26-5.57-.16-.28-1.31-1.75-1.31-3.33 0-1.57.83-2.35 1.13-2.68.3-.33.65-.38.87-.38.23 0 .48 0 .73.02.24.02.56-.09.85.65.29.74.96 2.56 1.04 2.75.08.2.14.44.04.72-.11.28-.17.46-.35.7-.18.23-.37.5-.53.67-.18.19-.37.4-.18.78.18.39.81 1.3 1.73 2.1 1.2 1.06 2.18 1.4 2.58 1.56.38.15.6.12.82-.07.22-.18.87-1.02 1.08-1.37.21-.35.44-.29.75-.17.3.13 1.89.9 2.22 1.07.33.18.55.27.63.42.07.15.07.87-.2 1.67z"/></svg>
-      WhatsApp
-    </button>
-  </div>
-</section>
+    <button type="submit" class="submit-btn" aria-label="Show me my behavior and character">Show Behavior</button>
+  </form>
+
+  <section id="resultSection" class="result-container" aria-live="polite" aria-atomic="true" hidden>
+    <h2 id="resultName"></h2>
+    <p class="behavior" id="behaviorText"></p>
+    <div class="share-label">Share to:</div>
+    <div class="share-buttons">
+      <button type="button" class="share-button" id="fbShare" aria-label="Share on Facebook" tabindex="0">
+        <svg viewBox="0 0 24 24"><path d="M22 12c0-5.525-4.475-10-10-10S2 6.475 2 12c0 5.012 3.676 9.15 8.438 9.878v-6.988h-2.54v-2.89h2.54v-2.202c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.465h-1.26c-1.243 0-1.63.772-1.63 1.562v1.869h2.773l-.443 2.89h-2.33v6.988C18.324 21.15 22 17.012 22 12z"/></svg>
+        Facebook
+      </button>
+      <button type="button" class="share-button" id="igShare" aria-label="Share on Instagram" tabindex="0">
+        <svg viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a1 1 0 110 2 1 1 0 010-2zm-5 3.75a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm0 2a2.75 2.75 0 100 5.5 2.75 2.75 0 000-5.5z"/></svg>
+        Instagram
+      </button>
+      <button type="button" class="share-button" id="waShare" aria-label="Share on WhatsApp" tabindex="0">
+        <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.87 11.87 0 0012 0C5.373 0 0 5.372 0 12a11.872 11.872 0 0017.03 10.9l.003-.002 4.972 1.426-1.453-4.862-.01-.033A11.898 11.898 0 0024 12c0-3.2-1.247-6.203-3.48-8.52zm-4.315 13.25c-.275.77-1.44 1.46-1.98 1.56-.5.09-1.11.13-2.22-.56-3.08-1.54-5.1-5.3-5.26-5.57-.16-.28-1.31-1.75-1.31-3.33 0-1.57.83-2.35 1.13-2.68.3-.33.65-.38.87-.38.23 0 .48 0 .73.02.24.02.56-.09.85.65.29.74.96 2.56 1.04 2.75.08.2.14.44.04.72-.11.28-.17.46-.35.7-.18.23-.37.5-.53.67-.18.19-.37.4-.18.78.18.39.81 1.3 1.73 2.1 1.2 1.06 2.18 1.4 2.58 1.56.38.15.6.12.82-.07.22-.18.87-1.02 1.08-1.37.21-.35.44-.29.75-.17.3.13 1.89.9 2.22 1.07.33.18.55.27.63.42.07.15.07.87-.2 1.67z"/></svg>
+        WhatsApp
+      </button>
+    </div>
+  </section>
 
 <script>
   (function() {
@@ -341,7 +341,6 @@
     let currentTextOutput = '';
     let currentName = '';
     let currentBehavior = '';
-    // Website URL to invite others
     const websiteUrl = window.location.origin;
 
     function encodeForURL(text) {
@@ -349,17 +348,18 @@
     }
 
     function createShareUrls(text) {
-      const urlEncode = encodeForURL(text + "\n\nCheck it out here: " + websiteUrl);
+      const messageWithInvite = text + "\n\nTry Fourlinkx yourself here: " + websiteUrl;
+      const urlEncode = encodeForURL(messageWithInvite);
       const pageUrl = encodeForURL(websiteUrl);
       return {
         fbUrl: `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}&quote=${urlEncode}`,
-        igUrl: `https://www.instagram.com/`, // Instagram can't share text directly
+        igUrl: `https://www.instagram.com/`,
         waUrl: `https://api.whatsapp.com/send?text=${urlEncode}`
       };
     }
 
     function setShareButtonsDisabled(disabled) {
-      [fbShareBtn, igShareBtn, waShareBtn].forEach(btn => {
+      [fbShareBtn, igShareBtn, waShareBtn, alertFbShare, alertIgShare, alertWaShare].forEach(btn => {
         btn.disabled = disabled;
         btn.style.pointerEvents = disabled ? 'none' : 'auto';
         btn.setAttribute('aria-disabled', disabled ? 'true' : 'false');
@@ -401,10 +401,14 @@
       igShareBtn.dataset.url = urls.igUrl;
       waShareBtn.dataset.url = urls.waUrl;
 
+      alertFbShare.dataset.url = urls.fbUrl;
+      alertIgShare.dataset.url = urls.igUrl;
+      alertWaShare.dataset.url = urls.waUrl;
+
       setShareButtonsDisabled(false);
       resultSection.hidden = true;
 
-      showAlert('🎉 Great! Now click any share button below or in this alert to see your behavior and share it with friends!');
+      showAlert('🎉 Great! Now click any share button below or in this alert to share your behavior and invite friends!');
     });
 
     function handleShareClick(event) {
@@ -413,20 +417,15 @@
         behaviorText.textContent = currentBehavior;
         resultSection.hidden = false;
       }
-
       const url = event.currentTarget.dataset.url;
       if (url) {
         window.open(url, '_blank', 'noopener,noreferrer');
       }
     }
 
-    [fbShareBtn, igShareBtn, waShareBtn].forEach(btn => {
+    [fbShareBtn, igShareBtn, waShareBtn, alertFbShare, alertIgShare, alertWaShare].forEach(btn => {
       btn.addEventListener('click', handleShareClick);
     });
-
-    // Alert share buttons - optional, if you want to add share buttons also in alert (remove if not wanted)
-    // If you want to add share buttons in alert message, uncomment below and add buttons in alert html (not included here)
-
   })();
 </script>
 </body>
